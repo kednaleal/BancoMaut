@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) throws Exception {
         Conta conta = new Conta("0000-0", "444-3", 1000.0);
 
@@ -38,19 +39,22 @@ public class App {
 
         Endereco endereco = new Endereco(rua, bairro, cidade, estado, cep);
 
-        Cliente.cadastrarCliente(nome, dataNascimento, CPF, endereco, conta);
+        Conta.cadastrarCliente(nome, dataNascimento, CPF, endereco, conta);
          
         }
-        // else if(opcao ==2){
+        else if(opcao ==2){
+            double novoSaldo = conta.getSaldo();
+            System.out.println(novoSaldo);
+        }
+        else if(opcao ==3){
+            Transacoes transacao = new Transacoes("deposito", "03/10", "deposito");
 
-        //     return getSaldo();
-        // }
-        // else if(opcao ==3){
-        //     System.out.println("Informe o valor: ");
-        //     double valor = scanner.nextDouble();
-        //     saldo += valor; 
+            System.out.println("Informe o valor: ");
+            double valor = scanner.nextDouble();
+            transacao.deposito(valor, conta);
+            System.out.println("déposito realizado com sucesso");
 
-        // }
+        }
         if(opcao ==4){
 
             // Conta conta = new Conta("0000-0", "444-3", 1000.0);
@@ -69,21 +73,44 @@ public class App {
             }
         
         }
-        // else if(opcao == 5){
-        //     System.out.println("Informe o valor");
-        //     double valor = Scanner.nextDouble();
-        // }
-        // else if(opcao == 6){
+        else if(opcao == 5){
+            
+            Transacoes transacao = new Transacoes("transferencia", "03/10", "transação de dinheiro para outra conta");
+            System.out.println("Informe o valor");
+            double valor = scanner.nextDouble();
 
-        // }
-        // else{
-        //     System.out.println("Opção inválida");
-        // }
+            System.out.println("Informe o nome do destino");
+            String nomeDestinatario = scanner.nextLine();
+            
+            System.out.println("Informe o numero da conta de destino");
+            String contaDestinatario = scanner.nextLine();
+
+            
+            
+            if(valor <= conta.getSaldo()){
+
+                transacao.transferir(valor,conta);
+
+                System.out.println("Transeferência realizada com suesso" + valor + "para " + nomeDestinatario + "numero da conta: " + contaDestinatario);
+            }else{
+                System.out.println("Não foi possível realizar essa transferencia");
+            }
+
+            
+            
+        }
+        else if(opcao == 6){
+
+        }
+        
+        else{
+            System.out.println("Opção inválida");
+        }
     
 
         
 
-        
+        scanner.close();
         
 
     }

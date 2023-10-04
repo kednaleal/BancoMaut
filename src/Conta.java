@@ -1,20 +1,19 @@
 public class Conta {
+
     private String agencia;
     private String numeroConta;
     private Cliente cliente;
     private double saldo;
+    public double getSaldo;
 
 
     public Conta(String agencia, String numeroConta, double saldo) {
         this.agencia = agencia;
         this.numeroConta = numeroConta;
-       // cliente = cliente;
+       cliente = cliente;
         this.saldo = saldo;
     }
 
-
-    public Conta() {
-    }
 
 
     public String getAgencia() {
@@ -41,6 +40,12 @@ public class Conta {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public static Cliente cadastrarCliente(String nome, String dataNascimento, String CPF, Endereco endereco, Conta conta) {
+        
+        return new Cliente(nome, dataNascimento, CPF, endereco, conta);
+        
     }
 
     

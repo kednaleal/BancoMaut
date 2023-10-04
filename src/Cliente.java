@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Cliente {
 
@@ -43,11 +42,7 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public static Cliente cadastrarCliente(String nome, String dataNascimento, String CPF, Endereco endereco, Conta conta) {
-        
-        return new Cliente(nome, dataNascimento, CPF, endereco, conta);
-        
-    }
+   
 
 
    public String toString(){

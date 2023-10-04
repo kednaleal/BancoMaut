@@ -1,11 +1,10 @@
-import java.util.Scanner;
+
 
 public class Transacoes {
 
     private String tipo;
     private String data;
-    private String descricao;
-    Scanner scanner = new Scanner(System.in); 
+    private String descricao; 
     
     public Transacoes(String tipo, String data, String descricao) {
         this.tipo = tipo;
@@ -40,14 +39,19 @@ public class Transacoes {
     public void sacar(double valor, Conta conta){
         double novoSaldo = conta.getSaldo() - valor;
         conta.setSaldo(novoSaldo);
-        System.out.println(novoSaldo);
+        
     }
 
-    public void deposito(double valor){
-
+    public void deposito(double valor, Conta conta){
+       double saldoAtual = conta.getSaldo();
+       double novoSaldo = saldoAtual + valor;
+        conta.setSaldo(novoSaldo);
     }
-    public void transferir(Cliente destino, double valor){  
-       
+    public void transferir( double valor, Conta conta){  
+        double novoSaldo = conta.getSaldo() - valor;
+        conta.setSaldo(novoSaldo);
+      conta.getNumeroConta();
+    
     }
 
     public void addExtrato(String imformacao){
