@@ -16,6 +16,10 @@ public class Cliente {
     }
 
 
+    public Cliente(String nome2, String cPF2, String dataNascimento2, String string, String string2) {
+    }
+
+
     public String getNome() {
         return nome;
     }
@@ -41,10 +45,13 @@ public class Cliente {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+    public Conta getConta(){
+        return this.conta;
+    }
 
    
 
-
+    @Override
    public String toString(){
     return "Dados{ " +
             "Nome: " + nome +

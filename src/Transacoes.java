@@ -12,6 +12,9 @@ public class Transacoes {
         this.descricao = descricao;
     }
    
+    public Transacoes(double valor, String tipo2) {
+    }
+
     public String getTipo() {
         return tipo;
     }
@@ -36,29 +39,8 @@ public class Transacoes {
         this.descricao = descricao;
     }
 
-    public void sacar(double valor, Conta conta){
-        double novoSaldo = conta.getSaldo() - valor;
-        conta.setSaldo(novoSaldo);
-        
-    }
-
-    public void deposito(double valor, Conta conta){
-       double saldoAtual = conta.getSaldo();
-       double novoSaldo = saldoAtual + valor;
-        conta.setSaldo(novoSaldo);
-    }
-    public void transferir( double valor, Conta conta){  
-        double novoSaldo = conta.getSaldo() - valor;
-        conta.setSaldo(novoSaldo);
-      conta.getNumeroConta();
     
-    }
+    
 
-    public void addExtrato(String imformacao){
-
-    }
-
-    public void extrato(String dados){
-
-    }
+   
 }
